@@ -516,7 +516,7 @@
             "ARAT": "Searched Song:"
         },
         "github": {
-            "GİTHUB_DESC": "Collects github information from the given username.\n⌨️ Example: .github souravkl11",
+            "GİTHUB_DESC": "Collects github information from the given username.\n⌨️ Example: .github MhmdMukarram",
             "REPLY": "_You Need To Type Any Username!_",
             "NOT": "_User not found!_",
             "FOLLOWERS": "Followers:",
