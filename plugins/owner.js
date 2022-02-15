@@ -1,87 +1,28 @@
-const asena = require('../events');
+const Asena = require('../events');
+const {MessageType, MessageOptions, Mimetype} = require('@adiwajshing/baileys');
+const axios = require('axios');
 
-const {MessageType} = require('@adiwajshing/baileys');
+const Language = require('../language');
+const Lang = Language.getString('wallpaper');
 
-const OWNER = "it sends details of owner"
+Asena.addCommand({pattern: 'owner', fromMe: false, desc: "Gives github link of the bot"}, (async (message, match) => {
 
-const GIT = "it sends links"
+    var skl = await axios.get("https://i.ibb.co/GsjY7fC/Whats-Alexa.png", { responseType: 'arraybuffer' })
 
-const Config = require('../config');
+    await message.sendMessage(Buffer(skl.data), MessageType.image, {mimetype: Mimetype.png, caption: `*ʀᴇᴅ ᴀʟᴘʜᴀ ɪꜱ ᴛʜᴇ ᴄʜɪɴᴛᴜ ʙᴏᴛ ᴏᴡɴᴇʀ *
 
-if (Config.WORKTYPE == 'private') {
+*Cʀᴇᴀᴛᴇʀ number : wa.me/94740979220?text=Hi%20Red_Alpha%20bro.%20*
 
-        asena.addCommand({pattern: 'owner', fromMe: true, deleteCommand: true, desc: OWNER,}, (async (message, match) => {
 
-    var r_text = new Array ();
+ *𝚁𝙴𝙳 𝙰𝙻𝙿𝙷𝙰 𝚆𝙰 chat group 1 : https://chat.whatsapp.com/Jx7f5x3wSU7D8a9ntdFB3j*
+     
+ *𝚁𝙴𝙳 𝙰𝙻𝙿𝙷𝙰 𝚆𝙰 chat group 2 : https://chat.whatsapp.com/E9ISyKEuxKz2pCP5Qz8igM*
 
-    
+ *𝚁𝙴𝙳 𝙰𝙻𝙿𝙷𝙰 𝚆𝙰 chat group 3 : https://chat.whatsapp.com/KS9MRCiMF9pFri4aLfLyVE*
 
-    r_text[1] = "*╔═════🔴💎RED ALPHA💎🔴═════╗*\n           \n*RED-ALPHA*\n\n*owner MHMD MUKARRAM - https://wa.me/message/5CCUQ6RG7BKBN1*\n* *\n🔰WHATSAPP SUPPORT GROUP :- *https://chat.whatsapp.com/Jx7f5x3wSU7D8a9ntdFB3j            *\n*╚══════🔱🔱🔱🔱🔱═════╝*\n\n*▷CREATOR: MHMD MUKARRAM*"
+ *Gɪᴛ Lɪɴᴋ : https://github.com/MhmdMukarram/CHINTU-BOT*
 
-    
+ *𝙲𝙷𝙸𝙽𝚃𝚄 © ༒︎𝚁𝙴𝙳 𝙰𝙻𝙿𝙷𝙰༒︎*
+`}) 
 
-    await message.client.sendMessage(
-
-        message.jid,(r_text[1]), MessageType.text);
-
-    }));
-
-        asena.addCommand({pattern: 'git', fromMe: true, deleteCommand: true, desc: GIT,}, (async (message, match) => {
-
-        var r_text = new Array ();
-
-    
-
-        r_text[1] = "*Git links*\n           *\n🔴💎═RED ALPHA OWNER MHMD MUKARRAM═💎🔴*\n\n*💘 https://github.com/MhmdMukarram/Red-Alpha*\n*     *\nMY BOT DEVOLOPER*\n\n*⚜https://github.com/mhmdmukrim/mhmdmukrim*    *\n\n⚜WHATSAPP CHAT GROUP LINK 2:- https://chat.whatsapp.com/Jx7f5x3wSU7D8a9ntdFB3j*"
-
-    
-
-        await message.client.sendMessage(
-
-            message.jid,(r_text[1]), MessageType.text);
-
-    
-
-        }));    
-
-    }
-
-    
-
-    if (Config.WORKTYPE == 'public') {
-
-        asena.addCommand({pattern: 'owner', fromMe: false, deleteCommand: true, desc: OWNER,}, (async (message, match) => {
-
-    var r_text = new Array ();
-
-    
-
-    r_text[1] = "*╔═════🔴💎RED ALPHA💎🔴═════╗*\n           \n*⚜═RED ALPHA═⚜*\n\n*owner MHMD MUKARRAM - https://wa.me/message/5CCUQ6RG7BKBN1*\n* *\n🔰WHATSAPP CHAT GROUP: https://chat.whatsapp.com/Jx7f5x3wSU7D8a9ntdFB3j*            *\n*╚══════🔱🔱🔱🔱🔱═════╝*\n\n*▷CREATOR: MHMD MUKARRAM*"
-
-    
-
-    await message.client.sendMessage(
-
-        message.jid,(r_text[1]), MessageType.text);
-
-    }));
-
-        asena.addCommand({pattern: 'git', fromMe: false, deleteCommand: true, desc: GIT,}, (async (message, match) => {
-
-        var r_text = new Array ();
-
-    
-
-        r_text[1] = "*Git links*\n           *\n🔴💎═RED ALPHA OWNER MHMD MUKARRAM═💎🔴*\n\n*💘 https://github.com/MhmdMukarram/Red-Alpha*\n*     *\n💓MY BOT DEVOLOPER*\n\n*⚜https://github.com/mhmdmukrim/mhmdmukrim*    *\n\n⚜WHATSAPP CHAT GROUP LINK 2:- https://chat.whatsapp.com/Jx7f5x3wSU7D8a9ntdFB3j*"
-
-    
-
-        await message.client.sendMessage(
-
-            message.jid,(r_text[1]), MessageType.text);
-
-    
-
-        }));    
-
-    }
+}));
